@@ -3,6 +3,7 @@ variable "app_name_instance" {
   description = "The name of the application this database is being created for"
 }
 
+
 variable "instance_class" {
   type    = string
   default = "db.r6g.xlarge"
