@@ -24,7 +24,6 @@ resource "aws_rds_cluster" "pgprovisionedcluster" {
   master_password                 = random_password.password.result
   preferred_maintenance_window    = "Sun:05:00-Sun:05:30"
   skip_final_snapshot             = false
-  snapshot_identifier             = data.aws_db_cluster_snapshot.latest_snapshot.id
   storage_encrypted               = true
   vpc_security_group_ids          = [data.aws_security_group.pgsecuritygp.id]
 
