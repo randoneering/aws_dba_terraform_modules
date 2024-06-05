@@ -1,17 +1,13 @@
+# Technically, this variable is used to identify the name of the application. Input comes from the application folder. 
 variable "app_name_instance" {
   type        = string
   description = "The name of the application this database is being created for"
 }
 
+# Set this default to your likings
 variable "instance_class" {
   type    = string
-  default = "db.r6g.xlarge"
-}
-
-# Straightforward-variable for number of instances to create. Default is 1
-variable "number_of_instances" {
-  type    = number
-  default = 1
+  default = "db.t3.medium"
 }
 
 # Creation of parameter group happens in root/application folder. 
@@ -19,13 +15,17 @@ variable "parameter_group" {
   type = string
 }
 
-# Creation of kms_key_arn can either happen in seperate module or in root/application folder.
-variable "kms_key_arn" {
+variable "deletion_protection" {
   type = string
 }
 
-variable "deletion_protection" {
+# Adjust to your liking
+variable "allocated_storage" {
   type    = string
-  default = true
+  default = 50
+}
 
+# Key arn
+variable "kms_key_arn" {
+  type = string
 }
