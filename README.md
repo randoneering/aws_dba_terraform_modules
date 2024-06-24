@@ -1,6 +1,7 @@
 # aws_dba_terraform_modules
-Collection of terraform modules designed for DBRE/DBA roles
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
+Collection of terraform modules designed for DBRE/DBA roles
+
 
 # Mission
 The `mission` of this repo is to provide other DBRE/DBAs with resources to stay up to date with our evolving role. I was unable to find related modules when trying to build out infrastructure for my employeers. I wish to share what I have learn, and continue to learn, with the public in the hope to help other DBRE/DBAs on their efforts. 
