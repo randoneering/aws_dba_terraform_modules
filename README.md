@@ -22,3 +22,11 @@ The following modules are to be used for creating instances from snapshots. The 
 
 This folder contains modules that can assist the modules included in this repo. Included you will find modules for creating kms keys, parameter groups, and other utilities that RDS instances will require. However, if you wish to use existing resources, feel free to dictate that in your datasource.tf files.
 
+## Scripts
+
+The following folder contains bash, python, and shell scripts that can be included inside a resource. These can be used to execute various commands, like creating a payload to send via a webhook. 
+
+## Collaboration
+
+I am open for collaboration as I, myself, am still learning how to sharpen my DBRE skills. If you would like to contribute/collaborate, please contact me at business@randoneering.tech
+

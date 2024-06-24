@@ -51,10 +51,10 @@ resource "aws_rds_cluster_instance" "pgsrvlessinstance" {
   ca_cert_identifier           = "rds-ca-ecc384-g1"
   publicly_accessible          = false
   db_subnet_group_name         = data.aws_db_subnet_group.database_subnetgp.name
-  monitoring_interval          = 60
+  monitoring_interval          = 60  # longest monitoring interval
   auto_minor_version_upgrade   = true
   monitoring_role_arn          = data.aws_iam_role.default_monitoring_role.arn
-  preferred_maintenance_window = "Sun:05:00-Sun:05:30"
+  preferred_maintenance_window = "Sun:05:00-Sun:05:30" # in UTC
   tags = {
     tags = "tags"
   }

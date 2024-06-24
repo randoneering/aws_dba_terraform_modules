@@ -4,6 +4,11 @@ variable "app_name_instance" {
     default = "mysql_newinstance"
 }
 
+# Variable for account name-used for script to notify when resource is created or deleted in teams
+variable "account_name"{
+    type = string
+    default = "########_accountname"
+}
 
 
 resource "aws_rds_cluster_parameter_group" "mysql8clusterparamgp" {
@@ -34,4 +39,12 @@ module "mysql" {
   app_name_instance = var.app_name_instance
   deletion_protection = true
   param_grp = aws_db_parameter_group.mysql8clusterparamgp.name
+}
+
+output "app_name" {
+  value = var.app_name_instance
+}
+
+output "account_name" {
+  value = var.account_name
 }
