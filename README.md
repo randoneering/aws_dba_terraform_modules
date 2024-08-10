@@ -4,21 +4,21 @@
 Collection of terraform modules designed for DBRE/DBA roles
 
 
-# Mission
+# mission
 The `mission` of this repo is to provide other DBRE/DBAs with resources to stay up to date with our evolving role. I was unable to find related modules when trying to build out infrastructure for my employeers. I wish to share what I have learn, and continue to learn, with the public in the hope to help other DBRE/DBAs on their efforts. 
 
 
-## Disclosure
+## disclosure
 These modules may not work out of the box according to your aws infrastructure. These are meant to be editted to your liking, but still provide a good template to start with. I am happy to receive contributors, but I want this to be a resource for other fellow DBRE/DBAs
 
 
-## New Instances
+## db_modules
 
-The following modules are to be used for creating instances without a snapshot. 
+The following modules can be used to deploy Aurora MySQL, Aurora Postgres, Postgres, MySQL, SQL Server, DynamoDB tables, and DocumentDB instances. 
 
-## Spindown_instances
+### _spindown modules
 
-The following modules are to be used for creating instances from snapshots. The intention is to spin up one of these resources, and spin them down when done. 
+The following modules are to be used for creating instances from snapshots. The intention is to spin up one of these resources, and spin them down when done. To be completely honest, the only difference in these are going to be the usage of a `snapshot identifier`. You could this a few ways. One, you could use a datasource to grab the latest snapshot from the instance you are trying to restore from. Or, you could specifically select a snapshot based off the identifier.
 
 ## Utilities 
 
