@@ -18,22 +18,22 @@ variable "number_of_instances" {
   default = 1
 }
 
-variable "db_engine"{
-  type = string
+variable "db_engine" {
+  type    = string
   default = "aurora-postgresql"
 }
 
-variable "pg_engine_version"{
-  type = string
+variable "pg_engine_version" {
+  type    = string
   default = "15.4"
 }
 
 variable "admin_username" {
-  type = string
+  type    = string
   default = "adminuser"
 }
-variable "engine_mode"{
-  type = string
+variable "engine_mode" {
+  type    = string
   default = "provisioned"
 }
 variable "serverless_max" {
@@ -68,8 +68,8 @@ variable "rds_monitoring_role" {
   default = ""
 }
 
-variable "rds_monitoring_role_arn"{
-  type = string
+variable "rds_monitoring_role_arn" {
+  type    = string
   default = ""
 
 }
@@ -89,11 +89,11 @@ variable "pgsecuritygp" {
 }
 
 variable "maintenance_window" {
-  type = string
+  type    = string
   default = "Sun:05:00-Sun:05:30"
 }
 
 variable "monitoring_window" {
-  type = number
+  type    = number
   default = 60
 }

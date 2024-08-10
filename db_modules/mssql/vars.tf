@@ -27,7 +27,7 @@ variable "allocated_storage" {
 }
 
 variable "storage_type" {
-  type = string
+  type    = string
   default = "gp3"
 }
 
@@ -36,7 +36,7 @@ variable "kms_key_arn" {
 }
 
 variable "rds_monitoring_role" {
-  type = string 
+  type    = string
   default = ""
 }
 
@@ -46,32 +46,32 @@ variable "number_of_instances" {
   default = 1
 }
 
-variable "db_engine"{
-  type = string
+variable "db_engine" {
+  type    = string
   default = "sqlserver-web"
 }
 
-variable "mssql_engine_version"{
-  type = string
+variable "mssql_engine_version" {
+  type    = string
   default = "15.00.4365.2.v1"
 }
 
 variable "admin_username" {
-  type = string
+  type    = string
   default = "adminname"
 }
-variable "engine_mode"{
-  type = string
+variable "engine_mode" {
+  type    = string
   default = "provisioned"
 }
 
 variable "database_name" {
-  type = string
+  type    = string
   default = ""
 }
 
-variable "rds_monitoring_role_arn"{
-  type = string
+variable "rds_monitoring_role_arn" {
+  type    = string
   default = ""
 
 }
@@ -91,11 +91,11 @@ variable "mssqlsecuritygp" {
 }
 
 variable "maintenance_window" {
-  type = string
+  type    = string
   default = "Sun:05:00-Sun:05:30"
 }
 
 variable "monitoring_window" {
-  type = number
+  type    = number
   default = 60
 }

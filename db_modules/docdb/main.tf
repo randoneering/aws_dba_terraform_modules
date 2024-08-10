@@ -4,15 +4,15 @@ resource "random_password" "password" {
 }
 
 resource "aws_docdb_cluster" "docdb" {
-  cluster_identifier        = var.app_name_instance
-  engine                    = var.db_engine
-  engine_version            = var.docdb_engine_version
-  master_username           = var.admin_username
-  master_password           = random_password.password.result
-  backup_retention_period   = 14
-  preferred_backup_window   = "09:00-09:30"
-  skip_final_snapshot       = false
-  final_snapshot_identifier = "${var.app_name_instance}-${formatdate("YYYYMMDDhhmmss", timestamp())}"
+  cluster_identifier              = var.app_name_instance
+  engine                          = var.db_engine
+  engine_version                  = var.docdb_engine_version
+  master_username                 = var.admin_username
+  master_password                 = random_password.password.result
+  backup_retention_period         = 14
+  preferred_backup_window         = "09:00-09:30"
+  skip_final_snapshot             = false
+  final_snapshot_identifier       = "${var.app_name_instance}-${formatdate("YYYYMMDDhhmmss", timestamp())}"
   allow_major_version_upgrade     = true
   apply_immediately               = true
   db_subnet_group_name            = var.database_subnetgp

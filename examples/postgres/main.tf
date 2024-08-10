@@ -1,5 +1,5 @@
 provider "aws" {
-  region = local.environment
+  region  = local.environment
   profile = "env"
 
   default_tags {
@@ -109,10 +109,10 @@ module "pgsrvless" {
   source              = "../../../terraform-modules/db/pgsrvless"
   app_name_instance   = local.app_name_instance
   kms_key_arn         = module.kmskey.key_arn
-  serverless_max = 2
+  serverless_max      = 2
   database_name       = local.database_name
   deletion_protection = true
-  parameter_group = aws_rds_cluster_parameter_group.pg15clusterparamgp.name
+  parameter_group     = aws_rds_cluster_parameter_group.pg15clusterparamgp.name
 }
 
 output "app_name" {
@@ -121,13 +121,13 @@ output "app_name" {
 
 output "account" {
   description = "Account Number"
-  value = local.account
+  value       = local.account
 }
-output "cluster_name"{
-    value = module.pgsrvless.cluster_name
+output "cluster_name" {
+  value = module.pgsrvless.cluster_name
 }
 
 output "writer_endpoint" {
-    value = module.pgsrvless.cluster_endpoint
-  
+  value = module.pgsrvless.cluster_endpoint
+
 }

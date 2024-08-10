@@ -1,5 +1,5 @@
 provider "aws" {
-  region = local.environment
+  region  = local.environment
   profile = "env"
 
   default_tags {
@@ -206,15 +206,15 @@ module "kmskey" {
 
 
 module "mysql" {
-  source = "../../../terraform-modules/db/rds/mysql_spindown"
-  app_name_instance = local.app_name_instance
-  kms_key_arn = module.kmskey.key_arn
+  source              = "../../../terraform-modules/db/rds/mysql_spindown"
+  app_name_instance   = local.app_name_instance
+  kms_key_arn         = module.kmskey.key_arn
   number_of_instances = local.number_of_instances
-  instance_class = local.instance_class
+  instance_class      = local.instance_class
   deletion_protection = local.deletetion_protection
-  database_name = local.database_name
+  database_name       = local.database_name
   snapshot_identifier = local.snapshot_identifier
-  param_grp = aws_rds_cluster_parameter_group.mysql8clusterparamgp.name
+  param_grp           = aws_rds_cluster_parameter_group.mysql8clusterparamgp.name
 
 }
 

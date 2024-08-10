@@ -14,26 +14,26 @@ variable "number_of_instances" {
 }
 
 variable "instance_class" {
-  type = string
+  type    = string
   default = "db.r6g.xlarge"
 }
 
-variable "db_engine"{
-  type = string
+variable "db_engine" {
+  type    = string
   default = "docdb"
 }
 
-variable "docdb_engine_version"{
-  type = string
+variable "docdb_engine_version" {
+  type    = string
   default = "5.0.0"
 }
 
 variable "admin_username" {
-  type = string
+  type    = string
   default = "adminusername"
 }
-variable "engine_mode"{
-  type = string
+variable "engine_mode" {
+  type    = string
   default = "provisioned"
 }
 
@@ -59,8 +59,8 @@ variable "rds_monitoring_role" {
   default = ""
 }
 
-variable "rds_monitoring_role_arn"{
-  type = string
+variable "rds_monitoring_role_arn" {
+  type    = string
   default = ""
 
 }
@@ -80,6 +80,6 @@ variable "docdbsecuritygp" {
 }
 
 variable "maintenance_window" {
-  type = string
+  type    = string
   default = "Sun:05:00-Sun:05:30"
 }

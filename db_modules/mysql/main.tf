@@ -5,13 +5,13 @@ resource "random_password" "password" {
 }
 
 resource "aws_rds_cluster" "msprovisionedcluster" {
-  cluster_identifier = "${var.app_name_instance}-cluster"
-  engine             = var.db_engine
-  engine_version     = var.mysql_engine_version
-  engine_mode        = var.engine_mode
-  database_name      = var.database_name
-  master_username    = var.admin_username
-  master_password    = random_password.password.result
+  cluster_identifier              = "${var.app_name_instance}-cluster"
+  engine                          = var.db_engine
+  engine_version                  = var.mysql_engine_version
+  engine_mode                     = var.engine_mode
+  database_name                   = var.database_name
+  master_username                 = var.admin_username
+  master_password                 = random_password.password.result
   final_snapshot_identifier       = "${var.app_name_instance}-${formatdate("YYYYMMDDhhmmss", timestamp())}"
   skip_final_snapshot             = false
   db_subnet_group_name            = var.database_subnetgp

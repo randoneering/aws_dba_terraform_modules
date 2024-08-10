@@ -1,6 +1,6 @@
 output "account" {
   description = "Account"
-  value = var.account
+  value       = var.account
 }
 
 output "app_name" {

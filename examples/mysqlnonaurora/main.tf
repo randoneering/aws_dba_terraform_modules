@@ -1,5 +1,5 @@
 provider "aws" {
-  region = local.environment
+  region  = local.environment
   profile = "qa"
 
   default_tags {
@@ -44,38 +44,38 @@ resource "aws_db_parameter_group" "mysql8paramgp" {
 
 
 module "kmskey" {
-  account = local.account
-  source = "../../../../terraform-modules/kms/dbakmskeys"
-  app_name_instance = "${local.app_name_instance}"
-  dba_iam_role = local.dba_iam_role
-  dba_iam_role_arn = local.dba_iam_role_arn
-  
-  
+  account           = local.account
+  source            = "../../../../terraform-modules/kms/dbakmskeys"
+  app_name_instance = local.app_name_instance
+  dba_iam_role      = local.dba_iam_role
+  dba_iam_role_arn  = local.dba_iam_role_arn
+
+
 }
 
 
 module "mysql8_spindown" {
-  account = local.account
-  source              = "../../../../terraform-modules/db/rds/mysql8_spindown"
-  app_name_instance   = local.app_name_instance
-  database_name       = local.database_name
-  mysql_engine_version = local.mysql_engine_version
-  instance_class      = local.instance_class
-  parameter_group = aws_db_parameter_group.mysql8paramgp.id
-  kms_key_arn         = module.kmskey.key_arn
-  deletion_protection = local.deletion_protection
-  snapshot_identifier = local.snapshot_identifier
-  rds_monitoring_role = local.rds_monitoring_role
+  account                 = local.account
+  source                  = "../../../../terraform-modules/db/rds/mysql8_spindown"
+  app_name_instance       = local.app_name_instance
+  database_name           = local.database_name
+  mysql_engine_version    = local.mysql_engine_version
+  instance_class          = local.instance_class
+  parameter_group         = aws_db_parameter_group.mysql8paramgp.id
+  kms_key_arn             = module.kmskey.key_arn
+  deletion_protection     = local.deletion_protection
+  snapshot_identifier     = local.snapshot_identifier
+  rds_monitoring_role     = local.rds_monitoring_role
   rds_monitoring_role_arn = local.rds_monitoring_role_arn
-  database_subnetgp = local.database_subnetgp
-  dba_iam_role = local.dba_iam_role
-  mysqlsecuritygp = local.mysqlsecuritygp
+  database_subnetgp       = local.database_subnetgp
+  dba_iam_role            = local.dba_iam_role
+  mysqlsecuritygp         = local.mysqlsecuritygp
 
 }
 
 output "account" {
   description = "Account"
-  value = module.mysql8_spindown.account
+  value       = module.mysql8_spindown.account
 }
 
 output "app_name" {

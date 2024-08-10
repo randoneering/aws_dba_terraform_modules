@@ -1,5 +1,5 @@
 provider "aws" {
-  region = local.environment
+  region  = local.environment
   profile = "env"
 
   default_tags {
@@ -23,30 +23,30 @@ resource "aws_docdb_cluster_parameter_group" "docdbclusterparamgp" {
 }
 
 module "kmskey" {
-  source = "../../../../terraform-modules/kms/dbakmskeys"
-  app_name_instance = "${local.app_name_instance}"
-  account = local.account
-  dba_iam_role = local.dba_iam_role
-  dba_iam_role_arn = local.dba_iam_role_arn
-  
+  source            = "../../../../terraform-modules/kms/dbakmskeys"
+  app_name_instance = local.app_name_instance
+  account           = local.account
+  dba_iam_role      = local.dba_iam_role
+  dba_iam_role_arn  = local.dba_iam_role_arn
+
 }
 
 
 module "docdb" {
   source              = "../../../../terraform-modules/db/documentdb/docdb"
-  account = local.account
-  database_name = local.database_name
+  account             = local.account
+  database_name       = local.database_name
   app_name_instance   = local.app_name_instance
-  docdbsecuritygp = local.docdbsecuritygp
+  docdbsecuritygp     = local.docdbsecuritygp
   number_of_instances = local.number_of_instances
   instance_class      = local.instance_class
-  parameter_group = aws_docdb_cluster_parameter_group.docdbclusterparamgp.name
-  kms_key_arn = module.kmskey.key_arn
+  parameter_group     = aws_docdb_cluster_parameter_group.docdbclusterparamgp.name
+  kms_key_arn         = module.kmskey.key_arn
   deletion_protection = local.deletion_protection
 }
 
 
-output "account"{
+output "account" {
   value = module.docdb.account
 }
 

@@ -8,8 +8,8 @@ variable "dba_iam_role" {
 }
 
 variable "dba_iam_role_arn" {
-    type = string
-    default =""
+  type    = string
+  default = ""
 }
 
 variable "account" {
