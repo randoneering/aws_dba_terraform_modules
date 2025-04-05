@@ -14,7 +14,7 @@ These modules may not work out of the box according to your aws infrastructure. 
 
 ## db_modules
 
-The following modules can be used to deploy Aurora MySQL, Aurora Postgres, and DocumentDB instances. I recently deleted some of the standalone rds and aurora modules to make way for more improved ones. You should see more coming soon.
+The following modules can be used to deploy Aurora MySQL, Aurora Postgres, RDS engines, and DocumentDB instances. I hope to keep updating these as I continue to itterate on best practices and truly make these modules geared towards other DBREs who are taking ownership of their database stack.
 
 
 ## Utilities 
